@@ -39,8 +39,9 @@ public class VendingMachine implements MachineInterface {
     }
 
     @Override
-    public void callAction(VendingMachineActionInterface machineAction, List<ParameterInterface> parameters) {
-        machineAction.execute(parameters);
+    public void callAction(VendingMachineActionInterface machineAction, ParameterInterface parameter) {
+
+        machineAction.execute(parameter);
 
     }
 

@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface VendingMachineActionInterface {
 
-    void execute(List<ParameterInterface> parameters);
+    void execute(ParameterInterface parameter);
 }

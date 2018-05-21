@@ -1,6 +1,5 @@
 package com.dexma.vmachine.resources;
 
-import java.util.List;
 
 public interface MachineInterface {
 
@@ -14,6 +13,6 @@ public interface MachineInterface {
 
     boolean actionAvailable(VendingMachineActionInterface machineAction);
 
-    void callAction(VendingMachineActionInterface machineAction,  List<ParameterInterface> parameters);
+    void callAction(VendingMachineActionInterface machineAction,  ParameterInterface parameter);
 
 }

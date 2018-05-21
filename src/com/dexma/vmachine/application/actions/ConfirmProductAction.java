@@ -8,11 +8,10 @@ import java.util.List;
 public class ConfirmProductAction implements VendingMachineActionInterface {
 
     @Override
-    public void execute(List<ParameterInterface> parameters) {
+    public void execute(ParameterInterface parameter) {
 
-        for (ParameterInterface parameter : parameters) {
-            System.out.println("Here it is your " + parameter.getParameterContent());
-        }
+        System.out.println("Here it is your " + parameter.getParameterContent());
+
 
     }
 }
