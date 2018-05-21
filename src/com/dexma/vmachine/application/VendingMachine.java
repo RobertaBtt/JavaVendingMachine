@@ -4,6 +4,7 @@ package com.dexma.vmachine.application;
 /*Macchina a stati - State Machine */
 
 import com.dexma.vmachine.resources.MachineInterface;
+import com.dexma.vmachine.resources.ParameterInterface;
 import com.dexma.vmachine.resources.VendingMachineActionInterface;
 
 import java.util.ArrayList;
@@ -29,6 +30,17 @@ public class VendingMachine implements MachineInterface {
 
     public void removeAction(VendingMachineActionInterface machineAction){
         machineActions.remove(machineAction);
+
+    }
+
+    @Override
+    public boolean actionAvailable(VendingMachineActionInterface machineAction) {
+        return this.machineActions.contains(machineAction);
+    }
+
+    @Override
+    public void callAction(VendingMachineActionInterface machineAction, List<ParameterInterface> parameters) {
+        machineAction.execute(parameters);
 
     }
 
