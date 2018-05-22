@@ -11,16 +11,13 @@ public class NumberParameter implements ParameterInterface {
 
     @Override
     public String getParameterContent() {
-        return null;
+        return String.valueOf(Float.parseFloat(String.valueOf(parameter)));
     }
 
     private float parameter;
 
-    public float getParameter() {
-        return parameter;
-    }
-
     public void setParameter(float parameter) {
+
         this.parameter = parameter;
     }
 

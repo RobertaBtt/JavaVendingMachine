@@ -1,22 +1,30 @@
 package com.dexma.vmachine.resources;
 
 
-import java.util.List;
+import com.dexma.vmachine.application.EnumStateMachine;
+
 
 public interface MachineInterface {
 
-    int getState();
+    EnumStateMachine getState();
 
-    void setState(int state);
+    void setState(EnumStateMachine state);
 
     void addAction(VendingMachineActionInterface machineAction);
 
-    void removeAction(VendingMachineActionInterface machineAction);
+    void addProduct(ProductInterface product );
+
 
     boolean actionAvailable(VendingMachineActionInterface machineAction);
 
-    void callAction(VendingMachineActionInterface machineAction,  ParameterInterface parameter);
+    boolean productAvailable(ProductInterface product);
 
-    void addProduct(ProductInterface product );
+    float getCurrentAmount();
+
+    void incrementAmount(float money);
+
+    void callUserAction(VendingMachineActionInterface machineAction, ParameterInterface parameter, MachineInterface machine);
+
+
 
 }

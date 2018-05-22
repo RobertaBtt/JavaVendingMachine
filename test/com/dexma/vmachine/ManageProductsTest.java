@@ -1,16 +1,10 @@
 package com.dexma.vmachine;
 
-import com.dexma.vmachine.application.VendingMachine;
-import com.dexma.vmachine.application.actions.AddMoneyAction;
-import com.dexma.vmachine.application.actions.CancelAction;
-import com.dexma.vmachine.application.actions.ResetAction;
 import com.dexma.vmachine.application.characteristics.DescriptionCharacteristic;
 import com.dexma.vmachine.application.characteristics.PriceCharacteristic;
 import com.dexma.vmachine.application.products.CokeProduct;
 import com.dexma.vmachine.resources.CharacteristicProductInterface;
-import com.dexma.vmachine.resources.MachineInterface;
 import com.dexma.vmachine.resources.ProductInterface;
-import com.dexma.vmachine.resources.VendingMachineActionInterface;
 import org.junit.Before;
 import org.junit.Test;
 

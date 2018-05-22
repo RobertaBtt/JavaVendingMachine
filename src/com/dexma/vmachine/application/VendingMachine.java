@@ -13,14 +13,21 @@ import java.util.List;
 
 public class VendingMachine implements MachineInterface {
 
-    private int state;
+    private EnumStateMachine state;
     private List<VendingMachineActionInterface> machineActions = new ArrayList<VendingMachineActionInterface>();
+    private List<ProductInterface> products = new ArrayList<ProductInterface>();
+    private float totalMoney = 0.0f;
+
+
+    public VendingMachine() {
+        this.state = EnumStateMachine.TURNED_ON;
+    }
 
     /**
      *
      * @return
      */
-    public int getState() {
+    public EnumStateMachine getState() {
         return state;
     }
 
@@ -28,7 +35,8 @@ public class VendingMachine implements MachineInterface {
      *
      * @param state
      */
-    public void setState(int state) {
+    public void setState(EnumStateMachine state) {
+
         this.state = state;
     }
 
@@ -60,25 +68,46 @@ public class VendingMachine implements MachineInterface {
         return this.machineActions.contains(machineAction);
     }
 
-    /**
-     *
-     * @param machineAction
-     * @param parameter
-     */
     @Override
-    public void callAction(VendingMachineActionInterface machineAction, ParameterInterface parameter) {
+    public boolean productAvailable(ProductInterface product) {
+        return this.products.contains(product);
+    }
 
-        machineAction.execute(parameter);
-
+    @Override
+    public float getCurrentAmount() {
+        return totalMoney;
     }
 
     /**
      *
+     * @param money
+     */
+    @Override
+    public void incrementAmount(float money) {
+        this.totalMoney += money;
+    }
+
+
+    /***
+     *
+     * @param machineAction that comes from the user
+     * @param parameter
+     * @param machine
+     */
+    @Override
+    public void callUserAction(VendingMachineActionInterface machineAction, ParameterInterface parameter, MachineInterface machine) {
+
+        machineAction.execute(parameter, machine);
+
+    }
+
+    /**
+     * Action that come from the Machine Supplier
      * @param product
      */
     @Override
     public void addProduct(ProductInterface product) {
-
+        products.add(product);
     }
 
 

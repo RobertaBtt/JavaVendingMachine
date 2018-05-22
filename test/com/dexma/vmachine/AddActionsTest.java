@@ -1,7 +1,7 @@
 package com.dexma.vmachine;
 
 import com.dexma.vmachine.application.VendingMachine;
-import com.dexma.vmachine.application.actions.AddMoneyAction;
+import com.dexma.vmachine.application.actions.InsertMoneyAction;
 import com.dexma.vmachine.application.actions.CancelAction;
 import com.dexma.vmachine.application.actions.ResetAction;
 import com.dexma.vmachine.resources.MachineInterface;
@@ -22,7 +22,7 @@ public class AddActionsTest {
     @Before
     public void prepareEnvironment(){
         concreteMachine = new VendingMachine();
-        addMoneyAction = new AddMoneyAction();
+        addMoneyAction = new InsertMoneyAction();
         resetAction = new ResetAction();
     }
 
@@ -39,10 +39,5 @@ public class AddActionsTest {
         assertEquals(false, concreteMachine.actionAvailable(new CancelAction()));
     }
 
-    @Test
-    public void testRemoveAnActionNotPresent() {
-        assertEquals(false, concreteMachine.actionAvailable(resetAction));
-        concreteMachine.removeAction(resetAction);
-        assertEquals(false, concreteMachine.actionAvailable(resetAction));
-    }
+
 }

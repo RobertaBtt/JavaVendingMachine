@@ -13,13 +13,12 @@ public class StringParameter implements ParameterInterface {
 
     @Override
     public String getParameterContent() {
+
         return null;
-    }
-    public String getParameter() {
-        return parameter;
     }
 
     public void setParameter(String parameter) {
+
         this.parameter = parameter;
     }
 
