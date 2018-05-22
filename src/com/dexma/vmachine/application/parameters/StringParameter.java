@@ -6,6 +6,15 @@ public class StringParameter implements ParameterInterface {
 
     private String parameter;
 
+    @Override
+    public String getParameterDescription() {
+        return "This parameter is a text";
+    }
+
+    @Override
+    public String getParameterContent() {
+        return null;
+    }
     public String getParameter() {
         return parameter;
     }
@@ -15,14 +24,5 @@ public class StringParameter implements ParameterInterface {
     }
 
 
-    @Override
-    public String getParameterDescription() {
 
-        return "This parameter is a text";
-    }
-
-    @Override
-    public String getParameterContent() {
-        return null;
-    }
 }
