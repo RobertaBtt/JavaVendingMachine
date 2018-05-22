@@ -5,7 +5,7 @@ import com.dexma.vmachine.resources.VendingMachineActionInterface;
 
 import java.util.List;
 
-public class ConfirmProductAction implements VendingMachineActionInterface {
+public class ProductEmissionAction implements VendingMachineActionInterface {
 
     @Override
     public void execute(ParameterInterface parameter) {
