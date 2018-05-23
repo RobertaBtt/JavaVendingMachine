@@ -1,5 +1,6 @@
 package com.dexma.vmachine.application.actions;
 
+import com.dexma.vmachine.application.VendingMachine;
 import com.dexma.vmachine.resources.MachineInterface;
 import com.dexma.vmachine.resources.ParameterInterface;
 import com.dexma.vmachine.resources.VendingMachineActionInterface;
@@ -11,10 +12,10 @@ import com.dexma.vmachine.resources.VendingMachineActionInterface;
 public class InsertMoneyAction implements VendingMachineActionInterface {
 
     @Override
-    public void execute(ParameterInterface parameter, MachineInterface machine) {
+    public void execute(ParameterInterface parameter) {
 
         System.out.println("Inserting money:" + parameter.getParameterContent());
-        machine.incrementAmount( Float.parseFloat(String.valueOf(parameter.getParameterContent())), machine);
+        VendingMachine.getInstance().incrementAmount( Float.parseFloat(String.valueOf(parameter.getParameterContent())));
 
     }
 }

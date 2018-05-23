@@ -1,5 +1,6 @@
 package com.dexma.vmachine.application.actions;
 
+import com.dexma.vmachine.application.VendingMachine;
 import com.dexma.vmachine.application.parameters.ProductParameter;
 import com.dexma.vmachine.resources.MachineInterface;
 import com.dexma.vmachine.resources.ParameterInterface;
@@ -10,22 +11,22 @@ import com.dexma.vmachine.resources.VendingMachineActionInterface;
 public class SelectProductAction implements VendingMachineActionInterface {
 
     @Override
-    public void execute(ParameterInterface parameter, MachineInterface machine) {
+    public void execute(ParameterInterface parameter) {
 
         ProductInterface productTocheck = (ProductInterface)parameter.getParameterContent();
 
-        if(machine.productAvailable(productTocheck)){
-            if (machine.getCurrentAmount()>= productTocheck.getPrice()){
+        if(VendingMachine.getInstance().productAvailable(productTocheck)){
+            if (VendingMachine.getInstance().getCurrentAmount()>= productTocheck.getPrice()){
                 System.out.println("Product Selected: " + productTocheck.getDescription());
-                machine.removeProduct(productTocheck, machine);
+                VendingMachine.getInstance().removeProduct(productTocheck);
 //                if (machine.getCurrentAmount()> productTocheck.getPrice()){
 //                    System.out.println("Here it is the rest of your money : " + (machine.getCurrentAmount() - (productTocheck.getPrice())));
 //                }
-                machine.decrementAmount(productTocheck.getPrice(), machine);
+                VendingMachine.getInstance().decrementAmount(productTocheck.getPrice());
 
             }
             else{
-                System.out.println("Please add : " + (productTocheck.getPrice() - machine.getCurrentAmount()));
+                System.out.println("Please add : " + (productTocheck.getPrice() - VendingMachine.getInstance().getCurrentAmount()));
             }
 
         }

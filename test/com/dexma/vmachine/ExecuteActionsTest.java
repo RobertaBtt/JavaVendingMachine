@@ -34,7 +34,7 @@ public class ExecuteActionsTest {
 
     @Test
     public void executeAddAction() {
-        concreteMachine.callUserAction(new StartUpAction(), numberParameter, concreteMachine);
+        concreteMachine.callUserAction(new StartUpAction(), numberParameter);
     }
 
 

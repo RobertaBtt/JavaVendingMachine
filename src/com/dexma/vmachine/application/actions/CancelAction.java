@@ -1,5 +1,6 @@
 package com.dexma.vmachine.application.actions;
 
+import com.dexma.vmachine.application.VendingMachine;
 import com.dexma.vmachine.resources.MachineInterface;
 import com.dexma.vmachine.resources.ParameterInterface;
 import com.dexma.vmachine.resources.VendingMachineActionInterface;
@@ -10,10 +11,10 @@ import com.dexma.vmachine.resources.VendingMachineActionInterface;
 public class CancelAction implements VendingMachineActionInterface {
 
     @Override
-    public void execute(ParameterInterface parameter, MachineInterface machine) {
+    public void execute(ParameterInterface parameter) {
 
-        System.out.println("Cancelling request of product " + parameter.getParameterContent());
-        machine.incrementAmount( - machine.getCurrentAmount(), machine);
+        System.out.println("Retrieving back the money - Action cancelled");
+        VendingMachine.getInstance().incrementAmount( - VendingMachine.getInstance().getCurrentAmount());
 
     }
 }

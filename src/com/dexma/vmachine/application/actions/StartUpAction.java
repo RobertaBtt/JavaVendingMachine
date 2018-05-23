@@ -7,7 +7,7 @@ import com.dexma.vmachine.resources.VendingMachineActionInterface;
 public class StartUpAction implements VendingMachineActionInterface {
 
     @Override
-    public void execute(ParameterInterface parameter, MachineInterface machine) {
+    public void execute(ParameterInterface parameter) {
 
         System.out.println("Powering Machine " + parameter.getParameterContent());
 

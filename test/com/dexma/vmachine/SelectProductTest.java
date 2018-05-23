@@ -12,7 +12,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class ManageMachineTest {
+public class SelectProductTest {
 
     private MachineInterface vendingMachine;
     private VendingMachineActionInterface startupAction;
@@ -74,7 +74,7 @@ public class ManageMachineTest {
     @Test
     public void testInsertMachine(){
 
-        vendingMachine.callUserAction(insertMoney, money, vendingMachine);
+        vendingMachine.callUserAction(insertMoney, money);
         assertEquals(Float.parseFloat(String.valueOf(money.getParameterContent())), vendingMachine.getCurrentAmount(), 0);
 
     }
@@ -82,7 +82,7 @@ public class ManageMachineTest {
     @Test
     public void testSelectProduct(){
         //vendingMachine.callUserAction(insertMoney, money, vendingMachine);
-        vendingMachine.callUserAction(selectProduct, product, vendingMachine);
+        vendingMachine.callUserAction(selectProduct, product);
         assertEquals(3.5, vendingMachine.getCurrentAmount(), 0);
 
     }

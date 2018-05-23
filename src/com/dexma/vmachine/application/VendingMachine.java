@@ -90,13 +90,13 @@ public class VendingMachine implements MachineInterface {
      * @param money
      */
     @Override
-    public void incrementAmount(float money, MachineInterface machine) {
+    public void incrementAmount(float money) {
 
         this.totalMoney += money;
     }
 
     @Override
-    public void decrementAmount(float money, MachineInterface machine) {
+    public void decrementAmount(float money) {
         if (this.totalMoney > money)
             this.totalMoney -= money;
     }
@@ -106,12 +106,11 @@ public class VendingMachine implements MachineInterface {
      *
      * @param machineAction that comes from the user
      * @param parameter
-     * @param machine
      */
     @Override
-    public void callUserAction(VendingMachineActionInterface machineAction, ParameterInterface parameter, MachineInterface machine) {
+    public void callUserAction(VendingMachineActionInterface machineAction, ParameterInterface parameter) {
 
-        machineAction.execute(parameter, machine);
+        machineAction.execute(parameter);
     }
 
     /**
@@ -123,8 +122,9 @@ public class VendingMachine implements MachineInterface {
         products.add(product);
     }
 
+
     @Override
-    public void removeProduct(ProductInterface product, MachineInterface machine) {
+    public void removeProduct(ProductInterface product) {
 
         if (products.contains(product)){
             products.remove(product);
