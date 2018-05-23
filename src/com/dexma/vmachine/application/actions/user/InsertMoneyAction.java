@@ -1,4 +1,4 @@
-package com.dexma.vmachine.application.actions;
+package com.dexma.vmachine.application.actions.user;
 
 import com.dexma.vmachine.application.VendingMachine;
 import com.dexma.vmachine.resources.MachineInterface;

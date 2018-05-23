@@ -1,9 +1,10 @@
 package com.dexma.vmachine;
 
+import com.dexma.vmachine.application.EnumStateMachine;
 import com.dexma.vmachine.application.VendingMachine;
-import com.dexma.vmachine.application.actions.InsertMoneyAction;
-import com.dexma.vmachine.application.actions.ResetAction;
-import com.dexma.vmachine.application.actions.StartUpAction;
+import com.dexma.vmachine.application.actions.user.InsertMoneyAction;
+import com.dexma.vmachine.application.actions.supervisor.ResetAction;
+import com.dexma.vmachine.application.actions.supervisor.StartUpAction;
 import com.dexma.vmachine.application.parameters.NumberParameter;
 import com.dexma.vmachine.resources.MachineInterface;
 import com.dexma.vmachine.resources.ParameterInterface;
@@ -13,7 +14,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class ExecuteActionsTest {
+public class StartupActionTest {
 
     private MachineInterface concreteMachine;
     private VendingMachineActionInterface addMoneyAction;
@@ -35,6 +36,7 @@ public class ExecuteActionsTest {
     @Test
     public void executeAddAction() {
         concreteMachine.callUserAction(new StartUpAction(), numberParameter);
+        assertEquals(EnumStateMachine.ON, concreteMachine.getState());
     }
 
 

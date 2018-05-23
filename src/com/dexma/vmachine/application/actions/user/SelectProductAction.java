@@ -1,4 +1,4 @@
-package com.dexma.vmachine.application.actions;
+package com.dexma.vmachine.application.actions.user;
 
 import com.dexma.vmachine.application.VendingMachine;
 import com.dexma.vmachine.application.parameters.ProductParameter;
@@ -17,6 +17,7 @@ public class SelectProductAction implements VendingMachineActionInterface {
 
         if(VendingMachine.getInstance().productAvailable(productTocheck)){
             if (VendingMachine.getInstance().getCurrentAmount()>= productTocheck.getPrice()){
+
                 System.out.println("Product Selected: " + productTocheck.getDescription());
                 VendingMachine.getInstance().removeProduct(productTocheck);
 //                if (machine.getCurrentAmount()> productTocheck.getPrice()){

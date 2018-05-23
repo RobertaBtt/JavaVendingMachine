@@ -1,9 +1,9 @@
 package com.dexma.vmachine;
 
 import com.dexma.vmachine.application.VendingMachine;
-import com.dexma.vmachine.application.actions.InsertMoneyAction;
-import com.dexma.vmachine.application.actions.CancelAction;
-import com.dexma.vmachine.application.actions.ResetAction;
+import com.dexma.vmachine.application.actions.user.InsertMoneyAction;
+import com.dexma.vmachine.application.actions.user.CancelAction;
+import com.dexma.vmachine.application.actions.supervisor.ResetAction;
 import com.dexma.vmachine.resources.MachineInterface;
 import com.dexma.vmachine.resources.VendingMachineActionInterface;
 

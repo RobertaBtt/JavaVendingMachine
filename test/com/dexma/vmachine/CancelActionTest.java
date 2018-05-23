@@ -1,7 +1,10 @@
 package com.dexma.vmachine;
 
 import com.dexma.vmachine.application.VendingMachine;
-import com.dexma.vmachine.application.actions.*;
+import com.dexma.vmachine.application.actions.supervisor.StartUpAction;
+import com.dexma.vmachine.application.actions.user.CancelAction;
+import com.dexma.vmachine.application.actions.user.InsertMoneyAction;
+import com.dexma.vmachine.application.actions.user.SelectProductAction;
 import com.dexma.vmachine.application.parameters.NumberParameter;
 import com.dexma.vmachine.application.parameters.ProductParameter;
 import com.dexma.vmachine.application.products.CokeProduct;
@@ -14,7 +17,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class CancelActionProductTest {
+public class CancelActionTest {
 
     private MachineInterface vendingMachine;
     private VendingMachineActionInterface startupAction;

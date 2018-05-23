@@ -12,13 +12,16 @@ import com.dexma.vmachine.application.actions.user.SelectProductAction;
 import com.dexma.vmachine.application.parameters.NumberParameter;
 import com.dexma.vmachine.application.parameters.ProductParameter;
 import com.dexma.vmachine.application.products.CokeProduct;
-import com.dexma.vmachine.resources.*;
+import com.dexma.vmachine.resources.MachineInterface;
+import com.dexma.vmachine.resources.ParameterInterface;
+import com.dexma.vmachine.resources.ProductInterface;
+import com.dexma.vmachine.resources.VendingMachineActionInterface;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class SelectProductTest {
+public class EmitProductActionTest {
 
     private MachineInterface vendingMachine;
     private VendingMachineActionInterface startupAction;
@@ -40,7 +43,7 @@ public class SelectProductTest {
 
     private void createParameters(){
         money = new NumberParameter();
-        ((NumberParameter) money).setParameter(5.0f);
+        ((NumberParameter) money).setParameter(0.1f);
 
         product = new ProductParameter();
         ((ProductParameter) product).setParameter(cokeProduct);
@@ -63,9 +66,6 @@ public class SelectProductTest {
 
     private void addTheProducts(MachineInterface vendingMachine){
         vendingMachine.addProduct(cokeProduct);
-//        vendingMachine.addProduct("Coke");
-//        vendingMachine.addProduct("Sprite");
-//        vendingMachine.addProduct("Water");
     }
 
     @Before
@@ -88,7 +88,7 @@ public class SelectProductTest {
     @Test
     public void testSelectProduct(){
         vendingMachine.callUserAction(selectProduct, product);
-        assertEquals(3.5, vendingMachine.getCurrentAmount(), 0);
+        assertEquals(0.1, vendingMachine.getCurrentAmount(), 0.1);
 
     }
 

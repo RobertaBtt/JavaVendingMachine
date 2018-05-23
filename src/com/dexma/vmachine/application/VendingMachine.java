@@ -26,7 +26,6 @@ public class VendingMachine implements MachineInterface {
         return instance;
     }
     private VendingMachine() {
-        this.state = EnumStateMachine.TURNED_ON;
     }
 
     /**
@@ -82,6 +81,7 @@ public class VendingMachine implements MachineInterface {
 
     @Override
     public float getCurrentAmount() {
+
         return totalMoney;
     }
 
