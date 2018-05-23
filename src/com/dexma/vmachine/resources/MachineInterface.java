@@ -14,7 +14,7 @@ public interface MachineInterface {
 
     void addProduct(ProductInterface product);
 
-    MachineInterface removeProduct(ProductInterface product, MachineInterface machine);
+    void removeProduct(ProductInterface product, MachineInterface machine);
 
     boolean actionAvailable(VendingMachineActionInterface machineAction);
 
@@ -22,10 +22,10 @@ public interface MachineInterface {
 
     float getCurrentAmount();
 
-    MachineInterface incrementAmount(float money, MachineInterface machine);
+    void incrementAmount(float money, MachineInterface machine);
 
-    MachineInterface decrementAmount(float money, MachineInterface machine);
+    void decrementAmount(float money, MachineInterface machine);
 
-    MachineInterface callUserAction(VendingMachineActionInterface machineAction, ParameterInterface parameter, MachineInterface machine);
+    void callUserAction(VendingMachineActionInterface machineAction, ParameterInterface parameter, MachineInterface machine);
 
 }

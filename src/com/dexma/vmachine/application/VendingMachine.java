@@ -11,7 +11,10 @@ import com.dexma.vmachine.resources.VendingMachineActionInterface;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class VendingMachine implements MachineInterface {
+
+    private static final VendingMachine instance = new VendingMachine();
 
     private EnumStateMachine state;
     private List<VendingMachineActionInterface> machineActions = new ArrayList<VendingMachineActionInterface>();
@@ -19,7 +22,10 @@ public class VendingMachine implements MachineInterface {
     private float totalMoney = 0.0f;
 
 
-    public VendingMachine() {
+    public static VendingMachine getInstance(){
+        return instance;
+    }
+    private VendingMachine() {
         this.state = EnumStateMachine.TURNED_ON;
     }
 
@@ -84,17 +90,15 @@ public class VendingMachine implements MachineInterface {
      * @param money
      */
     @Override
-    public MachineInterface incrementAmount(float money, MachineInterface machine) {
+    public void incrementAmount(float money, MachineInterface machine) {
 
         this.totalMoney += money;
-        return this;
     }
 
     @Override
-    public MachineInterface decrementAmount(float money, MachineInterface machine) {
+    public void decrementAmount(float money, MachineInterface machine) {
         if (this.totalMoney > money)
             this.totalMoney -= money;
-        return  machine;
     }
 
 
@@ -105,9 +109,9 @@ public class VendingMachine implements MachineInterface {
      * @param machine
      */
     @Override
-    public MachineInterface callUserAction(VendingMachineActionInterface machineAction, ParameterInterface parameter, MachineInterface machine) {
+    public void callUserAction(VendingMachineActionInterface machineAction, ParameterInterface parameter, MachineInterface machine) {
 
-        return machineAction.execute(parameter, machine);
+        machineAction.execute(parameter, machine);
     }
 
     /**
@@ -120,13 +124,12 @@ public class VendingMachine implements MachineInterface {
     }
 
     @Override
-    public MachineInterface removeProduct(ProductInterface product, MachineInterface machine) {
+    public void removeProduct(ProductInterface product, MachineInterface machine) {
 
         if (products.contains(product)){
             products.remove(product);
         }
 
-        return machine;
     }
 
 

@@ -21,7 +21,7 @@ public class AddActionsTest {
 
     @Before
     public void prepareEnvironment(){
-        concreteMachine = new VendingMachine();
+        concreteMachine = VendingMachine.getInstance();
         addMoneyAction = new InsertMoneyAction();
         resetAction = new ResetAction();
     }

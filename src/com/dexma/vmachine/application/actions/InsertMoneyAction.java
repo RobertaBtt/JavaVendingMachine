@@ -11,11 +11,10 @@ import com.dexma.vmachine.resources.VendingMachineActionInterface;
 public class InsertMoneyAction implements VendingMachineActionInterface {
 
     @Override
-    public MachineInterface execute(ParameterInterface parameter, MachineInterface machine) {
+    public void execute(ParameterInterface parameter, MachineInterface machine) {
 
         System.out.println("Inserting money:" + parameter.getParameterContent());
-        return machine.incrementAmount( Float.parseFloat(String.valueOf(parameter.getParameterContent())), machine);
-
+        machine.incrementAmount( Float.parseFloat(String.valueOf(parameter.getParameterContent())), machine);
 
     }
 }

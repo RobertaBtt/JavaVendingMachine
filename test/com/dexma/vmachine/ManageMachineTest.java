@@ -64,7 +64,7 @@ public class ManageMachineTest {
 
     @Before
     public void startHere(){
-        vendingMachine = new VendingMachine();
+        vendingMachine = VendingMachine.getInstance();
         createActions();
         programTheMachine(vendingMachine);
         addTheProducts(vendingMachine);
@@ -74,16 +74,16 @@ public class ManageMachineTest {
     @Test
     public void testInsertMachine(){
 
-        vendingMachine = vendingMachine.callUserAction(insertMoney, money, vendingMachine);
+        vendingMachine.callUserAction(insertMoney, money, vendingMachine);
         assertEquals(Float.parseFloat(String.valueOf(money.getParameterContent())), vendingMachine.getCurrentAmount(), 0);
 
     }
 
     @Test
     public void testSelectProduct(){
-        vendingMachine = vendingMachine.callUserAction(insertMoney, money, vendingMachine);
-        vendingMachine = vendingMachine.callUserAction(selectProduct, product, vendingMachine);
-        assertEquals(Float.parseFloat(String.valueOf(money.getParameterContent())), vendingMachine.getCurrentAmount(), 0);
+        //vendingMachine.callUserAction(insertMoney, money, vendingMachine);
+        vendingMachine.callUserAction(selectProduct, product, vendingMachine);
+        assertEquals(3.5, vendingMachine.getCurrentAmount(), 0);
 
     }
 

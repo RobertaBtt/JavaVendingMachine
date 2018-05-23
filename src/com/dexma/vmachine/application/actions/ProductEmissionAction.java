@@ -9,9 +9,8 @@ import java.util.List;
 public class ProductEmissionAction implements VendingMachineActionInterface {
 
     @Override
-    public MachineInterface execute(ParameterInterface parameter, MachineInterface machine) {
+    public void execute(ParameterInterface parameter, MachineInterface machine) {
 
         System.out.println("Here it is your " + parameter.getParameterContent());
-        return  machine;
     }
 }
