@@ -15,7 +15,7 @@ public class VendingMachine implements MachineInterface {
 
     private EnumStateMachine state;
     private List<VendingMachineActionInterface> machineActions = new ArrayList<VendingMachineActionInterface>();
-    private List<ProductInterface> products = new ArrayList<ProductInterface>();
+    private List<String> products = new ArrayList<String>();
     private float totalMoney = 0.0f;
 
 
@@ -69,8 +69,8 @@ public class VendingMachine implements MachineInterface {
     }
 
     @Override
-    public boolean productAvailable(ProductInterface product) {
-        return this.products.contains(product);
+    public boolean productAvailable(String productDescription) {
+        return this.products.contains(productDescription);
     }
 
     @Override
@@ -106,7 +106,7 @@ public class VendingMachine implements MachineInterface {
      * @param product
      */
     @Override
-    public void addProduct(ProductInterface product) {
+    public void addProduct(String product) {
         products.add(product);
     }
 

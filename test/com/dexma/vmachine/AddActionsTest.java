@@ -39,5 +39,4 @@ public class AddActionsTest {
         assertEquals(false, concreteMachine.actionAvailable(new CancelAction()));
     }
 
-
 }

@@ -14,7 +14,7 @@ public class InsertMoneyAction implements VendingMachineActionInterface {
     public void execute(ParameterInterface parameter, MachineInterface machine) {
 
         System.out.println("Inserting money:" + parameter.getParameterContent());
-        machine.incrementAmount( Float.parseFloat(parameter.getParameterContent()));
+        machine.incrementAmount( Float.parseFloat(String.valueOf(parameter.getParameterContent())));
 
     }
 }

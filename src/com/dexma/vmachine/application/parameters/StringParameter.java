@@ -14,7 +14,7 @@ public class StringParameter implements ParameterInterface {
     @Override
     public String getParameterContent() {
 
-        return null;
+        return parameter;
     }
 
     public void setParameter(String parameter) {

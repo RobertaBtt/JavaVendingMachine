@@ -11,7 +11,8 @@ public class CommandParameter implements ParameterInterface {
     }
 
     @Override
-    public String getParameterContent() {
+    public Object getParameterContent() {
+
         return null;
     }
 }
