@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface ProductInterface {
 
-    /*The Product interface has a list of characteristics*/
-    List<CharacteristicProductInterface> getProductCharacteristics();
+    String getDescription();
+    float getPrice();
 
 }

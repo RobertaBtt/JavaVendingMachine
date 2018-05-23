@@ -12,16 +12,20 @@ public interface MachineInterface {
 
     void addAction(VendingMachineActionInterface machineAction);
 
-    void addProduct(String product );
+    void addProduct(ProductInterface product);
+
+    MachineInterface removeProduct(ProductInterface product, MachineInterface machine);
 
     boolean actionAvailable(VendingMachineActionInterface machineAction);
 
-    boolean productAvailable(String productDescription);
+    boolean productAvailable(ProductInterface product);
 
     float getCurrentAmount();
 
-    void incrementAmount(float money);
+    MachineInterface incrementAmount(float money, MachineInterface machine);
 
-    void callUserAction(VendingMachineActionInterface machineAction, ParameterInterface parameter, MachineInterface machine);
+    MachineInterface decrementAmount(float money, MachineInterface machine);
+
+    MachineInterface callUserAction(VendingMachineActionInterface machineAction, ParameterInterface parameter, MachineInterface machine);
 
 }

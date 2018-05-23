@@ -10,7 +10,8 @@ public class RegisterProductAction implements VendingMachineActionInterface {
 
 
     @Override
-    public void execute(ParameterInterface parameter, MachineInterface machine) {
+    public MachineInterface execute(ParameterInterface parameter, MachineInterface machine) {
         System.out.println("Registering product: " + parameter.getParameterContent());
+        return machine;
     }
 }

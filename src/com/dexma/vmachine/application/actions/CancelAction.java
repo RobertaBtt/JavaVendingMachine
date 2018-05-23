@@ -10,10 +10,10 @@ import com.dexma.vmachine.resources.VendingMachineActionInterface;
 public class CancelAction implements VendingMachineActionInterface {
 
     @Override
-    public void execute(ParameterInterface parameter, MachineInterface machine) {
+    public MachineInterface execute(ParameterInterface parameter, MachineInterface machine) {
 
         System.out.println("Cancelling request of product " + parameter.getParameterContent());
-        machine.incrementAmount( - machine.getCurrentAmount());
+        return machine.incrementAmount( - machine.getCurrentAmount(), machine);
 
     }
 }

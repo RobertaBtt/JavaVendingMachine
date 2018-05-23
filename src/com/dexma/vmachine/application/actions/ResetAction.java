@@ -8,9 +8,10 @@ import com.dexma.vmachine.resources.VendingMachineActionInterface;
 public class ResetAction implements VendingMachineActionInterface {
 
     @Override
-    public void execute(ParameterInterface parameter, MachineInterface machine) {
+    public MachineInterface execute(ParameterInterface parameter, MachineInterface machine) {
 
         System.out.println("Resetting Machine " + parameter.getParameterContent());
+        return  machine;
 
     }
 }

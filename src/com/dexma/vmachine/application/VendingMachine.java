@@ -15,7 +15,7 @@ public class VendingMachine implements MachineInterface {
 
     private EnumStateMachine state;
     private List<VendingMachineActionInterface> machineActions = new ArrayList<VendingMachineActionInterface>();
-    private List<String> products = new ArrayList<String>();
+    private List<ProductInterface> products = new ArrayList<ProductInterface>();
     private float totalMoney = 0.0f;
 
 
@@ -69,8 +69,9 @@ public class VendingMachine implements MachineInterface {
     }
 
     @Override
-    public boolean productAvailable(String productDescription) {
-        return this.products.contains(productDescription);
+    public boolean productAvailable(ProductInterface product) {
+
+        return this.products.contains(product);
     }
 
     @Override
@@ -83,8 +84,17 @@ public class VendingMachine implements MachineInterface {
      * @param money
      */
     @Override
-    public void incrementAmount(float money) {
+    public MachineInterface incrementAmount(float money, MachineInterface machine) {
+
         this.totalMoney += money;
+        return this;
+    }
+
+    @Override
+    public MachineInterface decrementAmount(float money, MachineInterface machine) {
+        if (this.totalMoney > money)
+            this.totalMoney -= money;
+        return  machine;
     }
 
 
@@ -95,10 +105,9 @@ public class VendingMachine implements MachineInterface {
      * @param machine
      */
     @Override
-    public void callUserAction(VendingMachineActionInterface machineAction, ParameterInterface parameter, MachineInterface machine) {
+    public MachineInterface callUserAction(VendingMachineActionInterface machineAction, ParameterInterface parameter, MachineInterface machine) {
 
-        machineAction.execute(parameter, machine);
-
+        return machineAction.execute(parameter, machine);
     }
 
     /**
@@ -106,8 +115,18 @@ public class VendingMachine implements MachineInterface {
      * @param product
      */
     @Override
-    public void addProduct(String product) {
+    public void addProduct(ProductInterface product) {
         products.add(product);
+    }
+
+    @Override
+    public MachineInterface removeProduct(ProductInterface product, MachineInterface machine) {
+
+        if (products.contains(product)){
+            products.remove(product);
+        }
+
+        return machine;
     }
 
 

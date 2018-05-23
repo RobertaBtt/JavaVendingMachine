@@ -13,21 +13,17 @@ import static org.junit.Assert.assertEquals;
 public class ManageProductsTest {
 
     private ProductInterface coke;
-    private CharacteristicProductInterface cokeDescription;
-    private CharacteristicProductInterface cokePrice;
 
     @Before
     public void prepareEnvironment(){
         coke = new CokeProduct();
-        cokeDescription = new DescriptionCharacteristic("Coke");
-        cokePrice = new PriceCharacteristic(1.50f);
     }
 
 
     @Test
     public void createProduct() {
-        assertEquals("Coke", coke.getProductCharacteristics().get(0).getValue());
-        assertEquals(1.50f, coke.getProductCharacteristics().get(1).getValue());
+        assertEquals("Coke", coke.getDescription());
+        assertEquals(1.50f, coke.getPrice(), 0);
     }
 
 }
