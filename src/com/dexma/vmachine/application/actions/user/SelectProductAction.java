@@ -20,6 +20,7 @@ public class SelectProductAction implements VendingMachineActionInterface {
 
                 System.out.println("Product Selected: " + productTocheck.getDescription());
                 VendingMachine.getInstance().removeProduct(productTocheck);
+
 //                if (machine.getCurrentAmount()> productTocheck.getPrice()){
 //                    System.out.println("Here it is the rest of your money : " + (machine.getCurrentAmount() - (productTocheck.getPrice())));
 //                }
