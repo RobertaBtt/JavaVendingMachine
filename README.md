@@ -1,4 +1,4 @@
-This is a prototype of a Vending -Mahcine.
+This is a prototype of a Vending Machine.
 It's a State Machine
 
 which:
@@ -16,5 +16,5 @@ which:
 - It is easy to understand, test, reuse, evolve and maintain.
 
 
-![logo](https://www.evending.com/wp-content/uploads/2017/03/23-Select-Snack-Vending-Machine-lftqtr.jpg)
+![logo](https://is3-ssl.mzstatic.com/image/thumb/Purple3/v4/6d/09/16/6d0916fc-85b7-b515-0163-62579d7801d0/source/256x256bb.jpg)
 
